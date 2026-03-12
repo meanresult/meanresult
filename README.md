@@ -59,13 +59,19 @@
 
 ---
 
-## Learning
+## Currently Learning
 
-현재 집중하고 있는 것들:
+부트캠프를 통해 데이터 파이프라인을 직접 설계하고 운영하며 실무 감각을 키우고 있습니다.
+도구 사용법보다 **왜 이 구조인가**에 집중하며, 아직 부족한 부분을 인지하고 채워가는 중입니다.
 
-- **PySpark** — 대용량 데이터 분산 처리 및 최적화 (파티셔닝, broadcast join)
-- **Spark + Snowflake 연동** — Parquet 중간 저장 후 COPY INTO 패턴
-- **dbt 테스트 / 데이터 품질** — 파이프라인 신뢰성 확보
+| 분야 | 주제 | 우선순위 |
+|---|---|---|
+| **CS 기초** | 네트워크 (TCP/IP, HTTP, DNS) | ⭐⭐⭐⭐⭐ |
+| | 운영체제 (프로세스, 스레드, 메모리) | ⭐⭐⭐⭐⭐ |
+| | 자료구조 / 알고리즘 | ⭐⭐⭐⭐⭐ |
+| **Apache Spark** | 분산처리 구조, DataFrame 최적화 | ⭐⭐⭐ |
+| | 파티셔닝, broadcast join, Parquet 연동 | ⭐⭐⭐ |
+| **Databricks** | Spark 클러스터 운영, Delta Lake | ⭐⭐ |
 
 ---
 
