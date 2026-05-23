@@ -1,8 +1,13 @@
 # Jeehun Han — Data Engineer
 
+[![Programmers Badge](https://raw.githubusercontent.com/meanresult/programmers-badge-v1/master/static/result_mini.svg)](https://github.com/meanresult/programmers-badge-v1)
+![SQL Problem Solving](https://img.shields.io/badge/SQL-Problem_Solving-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Data Pipeline](https://img.shields.io/badge/Data-Pipeline_Engineering-0F766E?style=flat-square)
+
 실무형 데이터 엔지니어로 성장하고 있습니다.  
 데이터 수집부터 적재, 변환, 조회까지 하나의 흐름으로 연결하는 파이프라인을 직접 구현하며,  
 Airflow, Spark, Databricks, Snowflake 기반의 재현 가능한 데이터 워크플로우를 꾸준히 만들고 개선하고 있습니다.
+프로그래머스 SQL 문제풀이로 다진 문제 해결력을 실제 데이터 모델링과 분석용 쿼리 설계로 연결하는 데 집중하고 있습니다.
 
 **관심 있는 주제**
 
