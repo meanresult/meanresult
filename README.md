@@ -1,6 +1,6 @@
 # Jeehun Han — Data Engineer
 
-[![Programmers Badge](https://raw.githubusercontent.com/meanresult/programmers-badge-v1/master/static/result_mini.svg)](https://github.com/meanresult/programmers-badge-v1)
+[![Programmers Badge](https://raw.githubusercontent.com/meanresult/programmers-badge-v1/master/static/result.svg)](https://github.com/meanresult/programmers-badge-v1)
 ![SQL Problem Solving](https://img.shields.io/badge/SQL-Problem_Solving-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![Data Pipeline](https://img.shields.io/badge/Data-Pipeline_Engineering-0F766E?style=flat-square)
 
