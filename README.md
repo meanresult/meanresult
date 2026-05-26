@@ -1,9 +1,5 @@
 # Jeehun Han — Data Engineer
 
-[![Programmers Badge](https://raw.githubusercontent.com/meanresult/programmers-badge-v1/master/static/result.svg)](https://github.com/meanresult/programmers-badge-v1)
-![SQL Problem Solving](https://img.shields.io/badge/SQL-Problem_Solving-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![Data Pipeline](https://img.shields.io/badge/Data-Pipeline_Engineering-0F766E?style=flat-square)
-
 실무형 데이터 엔지니어로 성장하고 있습니다.  
 데이터 수집부터 적재, 변환, 조회까지 하나의 흐름으로 연결하는 파이프라인을 직접 구현하며,  
 Airflow, Spark, Databricks, Snowflake 기반의 재현 가능한 데이터 워크플로우를 꾸준히 만들고 개선하고 있습니다.
@@ -11,9 +7,9 @@ Airflow, Spark, Databricks, Snowflake 기반의 재현 가능한 데이터 워�
 
 **관심 있는 주제**
 
-- 운영 가능한 배치 파이프라인 설계
+- 복구 가능한 배치 파이프라인 설계
 - Raw/Stage/Mart, Bronze/Silver/Gold 레이어 분리
-- 멱등성, 데이터 품질, 성능 개선을 함께 고려한 데이터 처리 구조
+- 데이터 품질, 성능 개선을 함께 고려한 데이터 처리 구조
 
 ---
 
@@ -22,13 +18,13 @@ Airflow, Spark, Databricks, Snowflake 기반의 재현 가능한 데이터 워�
 **Orchestration & Pipeline**
 ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white)
 ![Spark](https://img.shields.io/badge/Spark-E25A1C?style=flat&logo=apachespark&logoColor=white)
-![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+
 
 **Data Warehouse & Transformation**
 ![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat&logo=snowflake&logoColor=white)
 ![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat&logo=dbt&logoColor=white)
 ![Delta Lake](https://img.shields.io/badge/Delta%20Lake-0A84FF?style=flat&logo=databricks&logoColor=white)
+![Databricks](https://img.shields.io/badge/Databricks-FF3621?style=flat&logo=databricks&logoColor=white)
 
 **Language & Backend**
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
