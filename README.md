@@ -50,15 +50,16 @@ Python과 SQL을 기반으로 데이터 수집·적재·변환·모델링까지 
 
 ### [Celebrity Recommend](https://github.com/meanresult/celebrity-recommend)
 
-> Instagram 브랜드 태그 데이터를 수집해 함께 태그된 브랜드와 계정을 분석하는 데이터 파이프라인
+> Instagram 브랜드 태그 데이터를 수집해 브랜드 간 관심사 겹침을 분석하고, 웹 화면에서 조회할 수 있도록 제공하는 데이터 파이프라인
 
-- **Data Engineering:** Playwright 기반 수집기와 브랜드별 Airflow DAG를 구성하고 Snowflake에 적재
-- **Analytics Engineering:** Snowflake의 Raw → Staging → Mart 계층과 dbt 모델을 구성
+- **Data Engineering:** Playwright 기반 수집기와 브랜드별 Airflow DAG를 구성하고 DuckDB에 적재
+- **Analytics Engineering:** DuckDB의 Raw → Staging → Mart 계층과 dbt 모델을 구성
 - “인스타 패션 유저의 취향은 무엇인가?”라는 질문을 팔로잉 데이터가 아닌 게시물의 브랜드 태그와 공동 태그 패턴으로 정의
 - 브랜드별 작업을 분리해 파이프라인 장애 범위를 줄이고 재실행 가능한 흐름을 설계
 - `cross_brand_accounts` Mart를 통해 교차 브랜드 계정 분석이 가능하도록 데이터 제공
-- Streamlit 대시보드와 연결해 수집 데이터와 분석 결과를 조회
-- **Stack:** Playwright · Airflow · Snowflake · dbt · Streamlit · Docker
+- **Serving:** FastAPI 조회 API와 Next.js 기반 웹 UI로 분석 결과 제공
+- **이전 구현:** Snowflake 기반 Raw / Stage / Mart 적재와 Streamlit 대시보드 구현
+- **Current Stack:** Playwright · Airflow · DuckDB · dbt · FastAPI · Next.js · Docker
 
 ### [Data Pipeline Training](https://github.com/meanresult/data-pipeline-traning)
 
@@ -70,31 +71,6 @@ Python과 SQL을 기반으로 데이터 수집·적재·변환·모델링까지 
 - DAG 작업을 단계별로 분리해 수집, 적재, 변환 흐름을 확인할 수 있도록 구성
 - **Stack:** Airflow · Snowflake · Docker · Python · SQL
 
-## Engineering Focus
-
-```text
-Source Data
-    ↓
-Ingestion & Validation
-    ↓
-Raw Layer
-    ↓
-Transformation & Modeling
-    ↓
-Stage / Silver Layer
-    ↓
-Mart / Gold Layer
-    ↓
-Dashboard & Analysis
-```
-
-현재는 다음 주제를 중심으로 프로젝트를 개선하고 있습니다.
-
-- 멱등성 있는 배치와 증분 적재
-- 데이터 품질 검증과 실패 원인 추적
-- 분석 목적에 맞는 grain과 데이터 모델 설계
-- Airflow 재실행 및 backfill 상황을 고려한 파이프라인 구성
-- 파이프라인 결과를 분석가와 대시보드가 쉽게 사용할 수 있는 Mart로 제공
 
 ## Tech Stack
 
@@ -117,12 +93,35 @@ Dashboard & Analysis
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 
-## Currently Strengthening
 
-- Airflow, Spark, Snowflake, dbt 기반 파이프라인의 실행 흐름과 데이터 모델을 반복적으로 개선하고 있습니다.
-- 증분 적재, 멱등성, 데이터 품질 검증을 실제 프로젝트에 적용하고 있습니다.
-- 분석가가 바로 사용할 수 있는 데이터마트와 지표 구조를 설계하는 연습을 하고 있습니다.
-- Databricks와 Delta Lake 환경에서 처리 성능과 저장 구조를 함께 개선하고 있습니다.
+## SQL Problem Solving
+
+문제를 바로 쿼리로 작성하기보다, 요구사항을 SQL 요소로 먼저 분해한 뒤 풀이합니다.
+
+```text
+문제 요구사항
+→ 출력 컬럼과 결과 단위 정의
+→ 조건·집계·정렬을 SQL 요소로 변환
+→ 쿼리 작성
+→ 다른 풀이와 비교 및 회고
+```
+
+### 풀이 노트 방식
+
+- `SELECT`: 최종적으로 필요한 컬럼과 결과 단위
+- `WHERE / CASE WHEN`: 자연어 조건을 SQL 조건으로 변환
+- `JOIN / GROUP BY`: 테이블 관계와 집계 기준 정의
+- `ORDER BY`: 문제에서 요구한 정렬 기준 정리
+- `Compare`: 다른 풀이와 쿼리 구조, 가독성, 예외 조건 비교
+
+예를 들어 `중성화 여부 파악하기` 문제는 다음처럼 정리합니다.
+
+- `SELECT`: 동물 ID, 이름, 중성화 여부
+- `CASE WHEN`: `SEX_UPON_INTAKE`에 `Neutered` 또는 `Spayed`가 포함되면 `O`, 아니면 `X`
+- `ORDER BY`: 동물 ID 오름차순
+
+- [SQL 풀이 저장소](https://github.com/meanresult/programmers-codingtest)
+- [예시 풀이: 중성화 여부 파악하기](https://github.com/meanresult/programmers-codingtest/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/2/59409.%E2%80%85%EC%A4%91%EC%84%B1%ED%99%94%E2%80%85%EC%97%AC%EB%B6%80%E2%80%85%ED%8C%8C%EC%95%85%ED%95%98%EA%B8%B0)
 
 ## Contact
 
